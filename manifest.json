@@ -1,0 +1,17 @@
+{
+  "name": "Calcul Boni Solaire",
+  "short_name": "Boni Solaire",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0A1628",
+  "theme_color": "#FFB800",
+  "description": "Calcule ton boni solaire avant relevé ORES",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
