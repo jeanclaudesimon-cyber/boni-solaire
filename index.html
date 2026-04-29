@@ -4,24 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Boni Solaire</title>
-
-<!-- PWA Meta -->
 <meta name="theme-color" content="#FFB800">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Boni Solaire">
-<link rel="manifest" href="data:application/manifest+json,{&quot;name&quot;:&quot;Calcul Boni Solaire&quot;,&quot;short_name&quot;:&quot;Boni Solaire&quot;,&quot;start_url&quot;:&quot;.&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;#0A1628&quot;,&quot;theme_color&quot;:&quot;#FFB800&quot;,&quot;description&quot;:&quot;Calcule ton boni solaire avant relevé ORES&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect fill='%230A1628' width='512' height='512' rx='80'/%3E%3Crect fill='none' stroke='%23FFB800' stroke-width='24' x='96' y='128' width='320' height='256' rx='16'/%3E%3Crect fill='%23FFB800' x='120' y='200' width='272' height='32' rx='8'/%3E%3Crect fill='rgba(255,184,0,0.3)' x='120' y='248' width='200' height='24' rx='6'/%3E%3Ccircle fill='%23FFB800' cx='256' cy='336' r='12'/%3E%3Cpath fill='none' stroke='%23FFB800' stroke-width='16' stroke-linecap='round' d='M 200 80 L 200 128 M 256 80 L 256 128 M 312 80 L 312 128'/%3E%3Ctext x='256' y='450' font-family='Arial' font-size='48' font-weight='bold' text-anchor='middle' fill='%23FFB800'%3EkWh%3C/text%3E%3C/svg%3E&quot;,&quot;sizes&quot;:&quot;512x512&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;,&quot;purpose&quot;:&quot;any maskable&quot;}]}">
-
-<!-- Icône iOS -->
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect fill='%230A1628' width='512' height='512' rx='80'/%3E%3Crect fill='none' stroke='%23FFB800' stroke-width='24' x='96' y='128' width='320' height='256' rx='16'/%3E%3Crect fill='%23FFB800' x='120' y='200' width='272' height='32' rx='8'/%3E%3Crect fill='rgba(255,184,0,0.3)' x='120' y='248' width='200' height='24' rx='6'/%3E%3Ccircle fill='%23FFB800' cx='256' cy='336' r='12'/%3E%3Cpath fill='none' stroke='%23FFB800' stroke-width='16' stroke-linecap='round' d='M 200 80 L 200 128 M 256 80 L 256 128 M 312 80 L 312 128'/%3E%3Ctext x='256' y='450' font-family='Arial' font-size='48' font-weight='bold' text-anchor='middle' fill='%23FFB800'%3EkWh%3C/text%3E%3C/svg%3E">
-
+<link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --sun:#FFB800;--sun2:#FF7A00;--green:#00E5A0;--blue:#00AAFF;--red:#FF4444;
-  --bg:#0A1628;--glass:rgba(255,255,255,0.05);--border:rgba(255,184,0,0.18);
-  --text:#fff;--text2:rgba(255,255,255,0.6);--text3:rgba(255,255,255,0.45);
-}
+:root{--sun:#FFB800;--sun2:#FF7A00;--green:#00E5A0;--blue:#00AAFF;--red:#FF4444;--bg:#0A1628;--glass:rgba(255,255,255,0.05);--border:rgba(255,184,0,0.18);--text:#fff;--text2:rgba(255,255,255,0.6);--text3:rgba(255,255,255,0.45);}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-height:100vh;padding:1.5rem;}
 body::before{content:'';position:fixed;top:-40%;left:-20%;width:80vw;height:80vw;background:radial-gradient(circle,rgba(255,184,0,0.07) 0%,transparent 65%);pointer-events:none;animation:pulse 8s ease-in-out infinite;}
@@ -51,8 +40,6 @@ input[type="number"]:focus{outline:none;border-color:var(--sun);box-shadow:0 0 0
 .kpi-val{font-size:1.3rem;font-weight:800;line-height:1;}
 .conseil{padding:.8rem;background:rgba(255,255,255,0.04);border-radius:8px;border-left:3px solid var(--sun);font-family:'Space Mono',monospace;font-size:.72rem;line-height:1.5;}
 .hidden{display:none;}
-.install-btn{position:fixed;bottom:1.5rem;right:1.5rem;padding:.8rem 1.2rem;background:linear-gradient(135deg,var(--sun),var(--sun2));color:#000;border:none;border-radius:999px;font-family:'Space Mono',monospace;font-weight:700;font-size:.75rem;cursor:pointer;box-shadow:0 4px 20px rgba(255,184,0,0.4);z-index:100;animation:bounce 2s infinite;}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 @media(max-width:700px){.grid-2,.grid-4{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -60,13 +47,10 @@ input[type="number"]:focus{outline:none;border-color:var(--sun);box-shadow:0 0 0
 <div class="container">
   <h1>☀️ Calcul Boni Solaire</h1>
   <p class="subtitle">Vérifie ton avance avant le relevé ORES</p>
-
   <div class="mode-switch">
     <button class="mode-btn active" id="btn-simple" onclick="setMode('simple')">Compteur Simple</button>
     <button class="mode-btn" id="btn-double" onclick="setMode('double')">Double Compteur</button>
   </div>
-
-  <!-- MODE SIMPLE -->
   <div id="mode-simple">
     <div class="card">
       <div class="ct"><div class="ct-l"><span>📋</span>Index Compteur</div><span class="badge">UNIQUE</span></div>
@@ -82,8 +66,6 @@ input[type="number"]:focus{outline:none;border-color:var(--sun);box-shadow:0 0 0
       </div>
     </div>
   </div>
-
-  <!-- MODE DOUBLE -->
   <div id="mode-double" class="hidden">
     <div class="card">
       <div class="ct"><div class="ct-l"><span>📋</span>Gestion Relevé - Double Compteur</div><span class="badge">JOUR + NUIT SÉPARÉS</span></div>
@@ -100,6 +82,7 @@ input[type="number"]:focus{outline:none;border-color:var(--sun);box-shadow:0 0 0
           <div class="result-line">
             <span>Marge:</span><strong id="jour-marge">—</strong>
           </div>
+        </div>
         <div class="input-box blue">
           <div class="input-label" style="color:var(--blue);font-weight:700;">🌙 COMPTEUR NUIT</div>
           <div class="input-sublabel">Index actuel</div>
@@ -116,161 +99,25 @@ input[type="number"]:focus{outline:none;border-color:var(--sun);box-shadow:0 0 0
       </div>
     </div>
   </div>
-
-  <!-- RÉSULTATS -->
   <div id="resultats" style="display:none;">
     <div class="grid-4">
-      <div class="kpi">
-        <div class="kpi-lbl">Total global estimé</div>
-        <div class="kpi-val" id="total-global">—</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-lbl">Marge globale</div>
-        <div class="kpi-val" id="marge-globale">—</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-lbl">Boni hiver total</div>
-        <div class="kpi-val" style="color:var(--green)" id="boni-hiver">—</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-lbl">Limite totale</div>
-        <div class="kpi-val" id="limite-totale">—</div>
-      </div>
+      <div class="kpi"><div class="kpi-lbl">Total global estimé</div><div class="kpi-val" id="total-global">—</div></div>
+      <div class="kpi"><div class="kpi-lbl">Marge globale</div><div class="kpi-val" id="marge-globale">—</div></div>
+      <div class="kpi"><div class="kpi-lbl">Boni hiver total</div><div class="kpi-val" style="color:var(--green)" id="boni-hiver">—</div></div>
+      <div class="kpi"><div class="kpi-lbl">Limite totale</div><div class="kpi-val" id="limite-totale">—</div></div>
     </div>
-    <div class="card">
-      <div class="conseil" id="conseil">Renseigne tes index pour voir le résultat</div>
-    </div>
+    <div class="card"><div class="conseil" id="conseil">Renseigne tes index pour voir le résultat</div></div>
   </div>
-
 </div>
-
-<button id="installBtn" class="install-btn hidden">📲 Installer l'app</button>
-
 <script>
-let mode = 'simple';
-let deferredPrompt;
-
-function setMode(m){
-  mode = m;
-  document.getElementById('btn-simple').classList.toggle('active', m==='simple');
-  document.getElementById('btn-double').classList.toggle('active', m==='double');
-  document.getElementById('mode-simple').classList.toggle('hidden', m!=='simple');
-  document.getElementById('mode-double').classList.toggle('hidden', m!=='double');
-  loadData();
-  if(m==='simple') calculSimple(); else calculDouble();
-}
-
-function loadData(){
-  const data = JSON.parse(localStorage.getItem('boni_solaire_data')||'{}');
-  if(mode==='simple'){
-    document.getElementById('simple-actuel').value = data.simpleActuel||'';
-    document.getElementById('simple-max').value = data.simpleMax||'';
-  } else {
-    document.getElementById('jour-actuel').value = data.jourActuel||'';
-    document.getElementById('nuit-actuel').value = data.nuitActuel||'';
-    document.getElementById('jour-max').value = data.jourMax||'';
-    document.getElementById('nuit-max').value = data.nuitMax||'';
-  }
-}
-
-function saveData(){
-  const data = JSON.parse(localStorage.getItem('boni_solaire_data')||'{}');
-  if(mode==='simple'){
-    data.simpleActuel = parseFloat(document.getElementById('simple-actuel').value)||null;
-    data.simpleMax = parseFloat(document.getElementById('simple-max').value)||null;
-  } else {
-    data.jourActuel = parseFloat(document.getElementById('jour-actuel').value)||null;
-    data.nuitActuel = parseFloat(document.getElementById('nuit-actuel').value)||null;
-    data.jourMax = parseFloat(document.getElementById('jour-max').value)||null;
-    data.nuitMax = parseFloat(document.getElementById('nuit-max').value)||null;
-  }
-  localStorage.setItem('boni_solaire_data', JSON.stringify(data));
-}
-
-function calculSimple(){
-  saveData();
-  const actuel = parseFloat(document.getElementById('simple-actuel').value);
-  const max = parseFloat(document.getElementById('simple-max').value);
-  if(!actuel||!max){document.getElementById('resultats').style.display='none';return;}
-  document.getElementById('resultats').style.display='block';
-  const marge = Math.round((max - actuel)*10)/10;
-  document.getElementById('total-global').textContent = actuel.toFixed(1)+' kWh';
-  document.getElementById('marge-globale').textContent = (marge>=0?'+':'')+marge.toFixed(1)+' kWh';
-  document.getElementById('marge-globale').style.color = marge>0?'var(--green)':'var(--red)';
-  document.getElementById('boni-hiver').textContent = Math.max(0,marge).toFixed(1)+' kWh';
-  document.getElementById('limite-totale').textContent = max.toFixed(1)+' kWh limite';
-  const conseil = document.getElementById('conseil');
-  if(marge<0){
-    conseil.textContent = `⚠️ DANGER : Tu dépasses de ${Math.abs(marge).toFixed(0)} kWh. Tu vas payer au relevé.`;
-    conseil.style.borderLeftColor='var(--red)';conseil.style.color='var(--red)';
-  } else {
-    conseil.textContent = `✅ BONI : Tu as ${marge.toFixed(0)} kWh d'avance. Tu peux consommer ça cet hiver sans payer.`;
-    conseil.style.borderLeftColor='var(--green)';conseil.style.color='var(--green)';
-  }
-}
-
-function calculDouble(){
-  saveData();
-  const ja = parseFloat(document.getElementById('jour-actuel').value);
-  const na = parseFloat(document.getElementById('nuit-actuel').value);
-  const jm = parseFloat(document.getElementById('jour-max').value);
-  const nm = parseFloat(document.getElementById('nuit-max').value);
-  if(!ja||!na||!jm||!nm){document.getElementById('resultats').style.display='none';return;}
-  document.getElementById('resultats').style.display='block';
-  const mj = Math.round((jm-ja)*10)/10;
-  const mn = Math.round((nm-na)*10)/10;
-  const mg = Math.round((mj+mn)*10)/10;
-  const tg = Math.round((ja+na)*10)/10;
-  const lt = Math.round((jm+nm)*10)/10;
-  document.getElementById('jour-actuel-val').textContent = ja.toFixed(1)+' kWh';
-  document.getElementById('jour-marge').textContent = (mj>=0?'+':'')+mj.toFixed(1)+' kWh';
-  document.getElementById('jour-marge').style.color = mj>0?'var(--green)':'var(--red)';
-  document.getElementById('nuit-actuel-val').textContent = na.toFixed(1)+' kWh';
-  document.getElementById('nuit-marge').textContent = (mn>=0?'+':'')+mn.toFixed(1)+' kWh';
-  document.getElementById('nuit-marge').style.color = mn>0?'var(--green)':'var(--red)';
-  document.getElementById('total-global').textContent = tg.toFixed(1)+' kWh';
-  document.getElementById('marge-globale').textContent = (mg>=0?'+':'')+mg.toFixed(1)+' kWh';
-  document.getElementById('marge-globale').style.color = mg>0?'var(--green)':'var(--red)';
-  document.getElementById('boni-hiver').textContent = Math.max(0,mg).toFixed(1)+' kWh';
-  document.getElementById('limite-totale').textContent = lt.toFixed(1)+' kWh limite';
-  const conseil = document.getElementById('conseil');
-  if(mg<0){
-    conseil.textContent = `⚠️ DANGER : Tu dépasses de ${Math.abs(mg).toFixed(0)} kWh au total. Jour: ${mj>=0?'+':''}${mj.toFixed(0)} / Nuit: ${mn>=0?'+':''}${mn.toFixed(0)}. Tu vas payer.`;
-    conseil.style.borderLeftColor='var(--red)';conseil.style.color='var(--red)';
-  } else {
-    conseil.textContent = `✅ BONI : Tu as ${mg.toFixed(0)} kWh d'avance au total. Jour: +${mj.toFixed(0)} kWh / Nuit: ${mn>=0?'+':''}${mn.toFixed(0)} kWh.`;
-    conseil.style.borderLeftColor='var(--green)';conseil.style.color='var(--green)';
-  }
-}
-
-// PWA Install
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  document.getElementById('installBtn').classList.remove('hidden');
-});
-
-document.getElementById('installBtn').addEventListener('click', async () => {
-  if(deferredPrompt){
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    if(outcome === 'accepted'){
-      document.getElementById('installBtn').classList.add('hidden');
-    }
-    deferredPrompt = null;
-  }
-});
-
-// Service Worker inline
-if('serviceWorker' in navigator){
-  const sw = `self.addEventListener('install',e=>self.skipWaiting());self.addEventListener('activate',e=>e.waitUntil(clients.claim()));self.addEventListener('fetch',e=>e.respondWith(fetch(e.request).catch(()=>caches.match(e.request))));`;
-  const blob = new Blob([sw], {type:'application/javascript'});
-  navigator.serviceWorker.register(URL.createObjectURL(blob));
-}
-
-// Init
-loadData();
-calculSimple();
+let mode='simple';
+function setMode(m){mode=m;document.getElementById('btn-simple').classList.toggle('active',m==='simple');document.getElementById('btn-double').classList.toggle('active',m==='double');document.getElementById('mode-simple').classList.toggle('hidden',m!=='simple');document.getElementById('mode-double').classList.toggle('hidden',m!=='double');loadData();if(m==='simple')calculSimple();else calculDouble();}
+function loadData(){const d=JSON.parse(localStorage.getItem('boni_solaire_data')||'{}');if(mode==='simple'){document.getElementById('simple-actuel').value=d.simpleActuel||'';document.getElementById('simple-max').value=d.simpleMax||'';}else{document.getElementById('jour-actuel').value=d.jourActuel||'';document.getElementById('nuit-actuel').value=d.nuitActuel||'';document.getElementById('jour-max').value=d.jourMax||'';document.getElementById('nuit-max').value=d.nuitMax||'';}}
+function saveData(){const d=JSON.parse(localStorage.getItem('boni_solaire_data')||'{}');if(mode==='simple'){d.simpleActuel=parseFloat(document.getElementById('simple-actuel').value)||null;d.simpleMax=parseFloat(document.getElementById('simple-max').value)||null;}else{d.jourActuel=parseFloat(document.getElementById('jour-actuel').value)||null;d.nuitActuel=parseFloat(document.getElementById('nuit-actuel').value)||null;d.jourMax=parseFloat(document.getElementById('jour-max').value)||null;d.nuitMax=parseFloat(document.getElementById('nuit-max').value)||null;}localStorage.setItem('boni_solaire_data',JSON.stringify(d));}
+function calculSimple(){saveData();const a=parseFloat(document.getElementById('simple-actuel').value);const m=parseFloat(document.getElementById('simple-max').value);if(!a||!m){document.getElementById('resultats').style.display='none';return;}document.getElementById('resultats').style.display='block';const mg=Math.round((m-a)*10)/10;document.getElementById('total-global').textContent=a.toFixed(1)+' kWh';document.getElementById('marge-globale').textContent=(mg>=0?'+':'')+mg.toFixed(1)+' kWh';document.getElementById('marge-globale').style.color=mg>0?'var(--green)':'var(--red)';document.getElementById('boni-hiver').textContent=Math.max(0,mg).toFixed(1)+' kWh';document.getElementById('limite-totale').textContent=m.toFixed(1)+' kWh limite';const c=document.getElementById('conseil');if(mg<0){c.textContent=`⚠️ DANGER : Tu dépasses de ${Math.abs(mg).toFixed(0)} kWh. Tu vas payer au relevé.`;c.style.borderLeftColor='var(--red)';c.style.color='var(--red)';}else{c.textContent=`✅ BONI : Tu as ${mg.toFixed(0)} kWh d'avance. Tu peux consommer ça cet hiver sans payer.`;c.style.borderLeftColor='var(--green)';c.style.color='var(--green)';}}
+function calculDouble(){saveData();const ja=parseFloat(document.getElementById('jour-actuel').value);const na=parseFloat(document.getElementById('nuit-actuel').value);const jm=parseFloat(document.getElementById('jour-max').value);const nm=parseFloat(document.getElementById('nuit-max').value);if(!ja||!na||!jm||!nm){document.getElementById('resultats').style.display='none';return;}document.getElementById('resultats').style.display='block';const mj=Math.round((jm-ja)*10)/10;const mn=Math.round((nm-na)*10)/10;const mg=Math.round((mj+mn)*10)/10;const tg=Math.round((ja+na)*10)/10;const lt=Math.round((jm+nm)*10)/10;document.getElementById('jour-actuel-val').textContent=ja.toFixed(1)+' kWh';document.getElementById('jour-marge').textContent=(mj>=0?'+':'')+mj.toFixed(1)+' kWh';document.getElementById('jour-marge').style.color=mj>0?'var(--green)':'var(--red)';document.getElementById('nuit-actuel-val').textContent=na.toFixed(1)+' kWh';document.getElementById('nuit-marge').textContent=(mn>=0?'+':'')+mn.toFixed(1)+' kWh';document.getElementById('nuit-marge').style.color=mn>0?'var(--green)':'var(--red)';document.getElementById('total-global').textContent=tg.toFixed(1)+' kWh';document.getElementById('marge-globale').textContent=(mg>=0?'+':'')+mg.toFixed(1)+' kWh';document.getElementById('marge-globale').style.color=mg>0?'var(--green)':'var(--red)';document.getElementById('boni-hiver').textContent=Math.max(0,mg).toFixed(1)+' kWh';document.getElementById('limite-totale').textContent=lt.toFixed(1)+' kWh limite';const c=document.getElementById('conseil');if(mg<0){c.textContent=`⚠️ DANGER : Tu dépasses de ${Math.abs(mg).toFixed(0)} kWh au total. Jour: ${mj>=0?'+':''}${mj.toFixed(0)} / Nuit: ${mn>=0?'+':''}${mn.toFixed(0)}. Tu vas payer.`;c.style.borderLeftColor='var(--red)';c.style.color='var(--red)';}else{c.textContent=`✅ BONI : Tu as ${mg.toFixed(0)} kWh d'avance au total. Jour: +${mj.toFixed(0)} kWh / Nuit: ${mn>=0?'+':''}${mn.toFixed(0)} kWh.`;c.style.borderLeftColor='var(--green)';c.style.color='var(--green)';}}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js');}
+loadData();calculSimple();
 </script>
 </body>
 </html>
